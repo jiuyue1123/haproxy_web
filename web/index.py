@@ -1,7 +1,7 @@
 #!/usr/bin/python
-# authors: yeasy.github.com
-# date: 2013-07-05
-# update: 2023-03-02
+# authors: nanak <2152598815@qq.com>
+# github <github.com/jiuyue112>
+# update: 2023-07-15
 
 
 from collections import OrderedDict
