@@ -2,7 +2,7 @@
 # github <github.com/jiuyue112>
 # update: 2023-07-15
 
-version: "3.9"
+version: "3"
 services:
     weba:
         build: ./web
@@ -21,7 +21,7 @@ services:
         volumes:
             - ./haproxy:/haproxy-override
             - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
-        links:
+        external_links:
             - weba
             - webb
             - webc

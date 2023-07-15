@@ -315,7 +315,7 @@ backend web_backends
   balance roundrobin
   option forwardfor
   #option httpchk GET /
-  option httpchk HEAD /healthcheck.html HTTP/1.1
+  option httpchk HEAD /index.html HTTP/1.1
   server weba weba:80 check
   server webb webb:80 check
   server webc webc:80 check
@@ -323,12 +323,12 @@ backend web_backends
 
 haproxy_web下创建docker-compose.yml文件，并且写入以下内容。
 
-```sh
+```yaml
 # authors: nanak <2152598815@qq.com>
 # github <github.com/jiuyue112>
 # update: 2023-07-15
 
-version: "3.9"
+version: "3"
 services:
     weba:
         build: ./web
@@ -347,7 +347,7 @@ services:
         volumes:
             - ./haproxy:/haproxy-override
             - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
-        links:
+        external_links:
             - weba
             - webb
             - webc
@@ -355,3 +355,28 @@ services:
             - "80:80"
             - "70:70" # haproxy admin console, login with user:pass
 ```
+
+**现在应该是这样**
+
+![Alt text](image-7.png)
+
+## docker-compose启动！
+
+```sh
+# 使用以下命令启动compose
+docker-compose up
+```
+
+**结果：**
+
+![Alt text](image-8.png)
+
+**访问效果**
+
+![Alt text](image-9.png)
+
+**至此结束**
+
+# 贡献者
+[![Contributors](https://avatars.githubusercontent.com/jiuyue1123)](https://github.com/jiuyue1123)
+[![Contributors](https://img.shields.io/badge/Contributors-nanak-blue)](https://github.com/jiuyue1123)
