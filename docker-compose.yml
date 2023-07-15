@@ -1,6 +1,7 @@
-# This will start a haproxy and three web services. haproxy will act as a loadbalancer.
-# Authors: yeasy.github.com
-# Date: 2015-11-15
+#!/usr/bin/python
+# authors: nanak <2152598815@qq.com>
+# github <github.com/jiuyue112>
+# update: 2023-07-15
 
 version: "3.9"
 services:
